@@ -27,7 +27,7 @@ public class RMSysLoginTest extends TestBase {
 
     @Description("Go to RMSsys login page, enter credentials and login")
     @Test
-    public void login() throws InterruptedException {
+    public void login() {
         driver.findElement(usernameField).sendKeys(username);
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(loginButton).click();
