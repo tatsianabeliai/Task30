@@ -1,12 +1,12 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
-    public static WebDriver driver;
+    public WebDriver driver;
 
     protected String baseUrl;
 
@@ -14,7 +14,7 @@ public class TestBase {
         this.baseUrl = baseUrl;
     }
 
-    @BeforeClass
+    @BeforeSuite
     public void init() {
         driver = new ChromeDriver();
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
@@ -23,7 +23,7 @@ public class TestBase {
         driver.get(baseUrl);
     }
 
-    @AfterClass
+    @AfterSuite
     public void quit() {
         driver.quit();
     }
